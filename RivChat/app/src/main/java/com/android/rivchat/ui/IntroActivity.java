@@ -143,7 +143,7 @@ public class IntroActivity extends AppIntro {
     }
 
     private void onFailure() {
-        startActivity(new Intent(this, SplashActivity.class));
+        onBackPressed();
     }
 
     @Override
@@ -155,11 +155,9 @@ public class IntroActivity extends AppIntro {
                 onSuccess();
                 break;
             case Activity.RESULT_CANCELED:
-                onFailure();
                 break;
             case AutoResolveHelper.RESULT_ERROR:
                 Status status = AutoResolveHelper.getStatusFromIntent(data);
-                onFailure();
                 // Log the status for debugging.
                 // Generally, there is no need to show an error to
                 // the user as the Google Pay API will do that.

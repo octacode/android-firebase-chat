@@ -44,7 +44,8 @@
             android:name=".ui.AddGroupActivity"
             android:theme="@style/MyThemeNoActionbar" />
 
-        <activity android:name=".ui.SplashActivity">
+        <activity android:name=".ui.SplashActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
