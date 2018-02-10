@@ -125,24 +125,24 @@ public class RegisterActivity extends AppCompatActivity {
                         .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_TOKENIZED_CARD)
                         .setCardRequirements(
                                 CardRequirements.newBuilder()
-                                        .addAllowedCardNetworks(
-                                                Arrays.asList(
-                                                        WalletConstants.CARD_NETWORK_AMEX,
-                                                        WalletConstants.CARD_NETWORK_DISCOVER,
-                                                        WalletConstants.CARD_NETWORK_VISA,
-                                                        WalletConstants.CARD_NETWORK_MASTERCARD))
+                                        .addAllowedCardNetworks(Arrays.asList(
+                                                WalletConstants.CARD_NETWORK_AMEX,
+                                                WalletConstants.CARD_NETWORK_DISCOVER,
+                                                WalletConstants.CARD_NETWORK_VISA,
+                                                WalletConstants.CARD_NETWORK_MASTERCARD))
                                         .build());
 
-        PaymentMethodTokenizationParameters params =
-                PaymentMethodTokenizationParameters.newBuilder()
-                        .setPaymentMethodTokenizationType(
-                                WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
-                        .addParameter("gateway", "yourGateway")
-                        .addParameter("gatewayMerchantId", "yourMerchantIdGivenFromYourGateway")
-                        .build();
-
-        request.setPaymentMethodTokenizationParameters(params);
+        request.setPaymentMethodTokenizationParameters(createTokenizationParameters());
         return request.build();
+    }
+
+    private PaymentMethodTokenizationParameters createTokenizationParameters() {
+        return PaymentMethodTokenizationParameters.newBuilder()
+                .setPaymentMethodTokenizationType(WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
+                .addParameter("gateway", "stripe")
+                .addParameter("stripe:publishableKey", "pk_test_6pRNASCoBOKtIshFeQd4XMUh")
+                .addParameter("stripe:version", "5.1.0")
+                .build();
     }
 
     private void initiatePayment() {

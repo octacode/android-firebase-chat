@@ -137,15 +137,4 @@ public class IntroActivity extends AppIntro {
                     LOAD_PAYMENT_DATA_REQUEST_CODE);
         }
     }
-
-    private void onSuccess() {
-        Preferences.setFirstRun(this);
-        Preferences.setPaid(this);
-        startActivity(new Intent(this, LoginActivity.class));
-    }
-
-    private void onFailure() {
-        onBackPressed();
-    }
-
 }
