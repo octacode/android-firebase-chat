@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
                     finish();
                 } else if (!Preferences.getPaid(SplashActivity.this)) {
                     Toast.makeText(SplashActivity.this, "You haven't paid yet!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(SplashActivity.this, IntroActivity.class));
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                     finish();
                 } else if (Preferences.getPaid(SplashActivity.this)) {
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));

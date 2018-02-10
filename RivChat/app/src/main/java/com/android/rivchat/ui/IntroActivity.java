@@ -115,6 +115,7 @@ public class IntroActivity extends AppIntro {
         super.onSkipPressed(currentFragment);
         //Payment gateway
         initiatePayment();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     @Override
@@ -122,6 +123,7 @@ public class IntroActivity extends AppIntro {
         super.onDonePressed(currentFragment);
         //Payment gateway
         initiatePayment();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     private void initiatePayment() {
@@ -146,24 +148,4 @@ public class IntroActivity extends AppIntro {
         onBackPressed();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (resultCode) {
-            case Activity.RESULT_OK:
-                PaymentData paymentData = PaymentData.getFromIntent(data);
-                String token = paymentData.getPaymentMethodToken().getToken();
-                onSuccess();
-                break;
-            case Activity.RESULT_CANCELED:
-                break;
-            case AutoResolveHelper.RESULT_ERROR:
-                Status status = AutoResolveHelper.getStatusFromIntent(data);
-                // Log the status for debugging.
-                // Generally, there is no need to show an error to
-                // the user as the Google Pay API will do that.
-                break;
-            default:
-                // Do nothing.
-        }
-    }
 }

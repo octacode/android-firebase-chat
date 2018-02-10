@@ -14,10 +14,10 @@ public class Preferences {
     }
 
     public static boolean getPaid(Context context) {
-        return context.getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("hasPaid", true);
+        return context.getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("hasPaid", false);
     }
 
     public static void setPaid(Context context) {
-        context.getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("hasPaid", false).apply();
+        context.getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("hasPaid", true).apply();
     }
 }
