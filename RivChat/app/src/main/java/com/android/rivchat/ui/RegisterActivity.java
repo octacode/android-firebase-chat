@@ -140,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
         return PaymentMethodTokenizationParameters.newBuilder()
                 .setPaymentMethodTokenizationType(WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
                 .addParameter("gateway", "stripe")
-                .addParameter("stripe:publishableKey", "pk_test_6pRNASCoBOKtIshFeQd4XMUh")
+                .addParameter("stripe:publishableKey", "pk_live_gt7ghdFKDn21mZf9o7TOrn0s")
                 .addParameter("stripe:version", "5.1.0")
                 .build();
     }
